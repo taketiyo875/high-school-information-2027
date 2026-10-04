@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Dashboard</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+        }
+        body {
+            background: linear-gradient(135deg, #2b3a52, #3e5272, #243248);
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            padding: 20px;
+        }
+        .container {
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            align-items: center;
+        }
+        .clock-container {
+            text-align: center;
+            margin-bottom: 8px;
+        }
+        #date {
+            font-size: 14px;
+            color: #cbd5e1;
+            letter-spacing: 1px;
+            margin-bottom: 2px;
+        }
+        #time {
+            font-size: 38px;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            width: 100%;
+        }
+        .grid-1 {
+            width: 100%;
+        }
+        .section-title {
+            font-size: 13px;
+            color: #93c5fd;
+            text-align: center;
+            margin-top: 8px;
+            margin-bottom: -4px;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            text-shadow: 0 0 8px rgba(147, 197, 253, 0.4);
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.07);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 14px 16px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            text-align: center;
+            position: relative;
+        }
+        .card:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+        .card-label {
+            font-size: 11px;
+            color: #94a3b8;
+            margin-bottom: 3px;
+            font-weight: 500;
+        }
+        .card-main {
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        .card-sub {
+            font-size: 11px;
+            color: #38bdf8;
+            margin-top: 3px;
+            font-weight: bold;
+        }
+        .dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .dot-white {
+            background-color: #ffffff;
+            box-shadow: 0 0 8px #ffffff;
+        }
+        .dot-green {
+            background-color: #4ade80;
+            box-shadow: 0 0 8px #4ade80;
+        }
+        @media (max-width: 480px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+            .container {
+                gap: 10px;
+            }
+            #time {
+                font-size: 34px;
+            }
+            .card {
+                padding: 12px 14px;
+            }
+            .card-main {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- 時計エリア -->
+    <div class="clock-container">
+        <div id="date">----.--.-- (-)</div>
+        <div id="time">00:00</div>
+    </div>
+
+    <!-- 上段：コラム / 受験体験記 -->
+    <div class="grid-2">
+        <a href="https://green-radium-99e.notion.site/33f06cebba0180d19b5ec3e684bb0b3b?source=copy_link" target="_blank" class="card">
+            <span class="dot dot-white"></span>
+            <span class="card-label">Notion</span>
+            <span class="card-main">コラムを読む</span>
+        </a>
+        <a href="https://green-radium-99e.notion.site/33106cebba018027965bf563a75de9f2?v=33106cebba0180a4b02f000c1fd9a126&source=copy_link" target="_blank" class="card">
+            <span class="dot dot-white"></span>
+            <span class="card-label">Notion</span>
+            <span class="card-main">受験体験記を見る</span>
+        </a>
+    </div>
+
+    <!-- 中段：入試カウントダウン -->
+    <div class="grid-1">
+        <a href="https://snowstudy.github.io/countdown/" target="_blank" class="card">
+            <span class="card-label">外部サイト</span>
+            <span class="card-main">入試カウントダウン</span>
+        </a>
+    </div>
+
+    <!-- 下段タイトル：系列オプチャへの誘導案内 -->
+    <div class="section-title">＼ 苦手克服・得意を伸ばす！教科特化型部屋 ／</div>
+
+    <!-- 系列オプチャ（高校受験 / 大学受験） -->
+    <div class="grid-2">
+        <a href="https://line.me/ti/g2/FO_lamKFGjpzilzUOkU4xCCPnGbRNbl558hpww?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" target="_blank" class="card">
+            <span class="dot dot-green"></span>
+            <span class="card-label">高校受験生勉強会</span>
+            <span class="card-main">オープンチャットへ</span>
+        </a>
+        <a href="https://line.me/ti/g2/KQjlfiPYg9aO-o_MpQvlEABZ4gcoGq40KJU3rg?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" target="_blank" class="card">
+            <span class="dot dot-green"></span>
+            <span class="card-label">高校生勉強会 (大学受験)</span>
+            <span class="card-main">オープンチャットへ</span>
+            <span class="card-sub">※高校生の方はこちらも！</span>
+        </a>
+    </div>
+
+    <!-- 教科特化オプチャ（数学 / 英語） -->
+    <div class="grid-2">
+        <a href="https://line.me/ti/g2/iqhlogccPd8n3b8EiYkNzauR2Ah-lkqWT15BHA?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" target="_blank" class="card">
+            <span class="dot dot-green"></span>
+            <span class="card-label">数学専門部屋</span>
+            <span class="card-main">オープンチャットへ</span>
+        </a>
+        <a href="https://line.me/ti/g2/Zqa4jopexWSL6Bkc2N9iTiPZvtDVcZsRfaQd7g?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" target="_blank" class="card">
+            <span class="dot dot-green"></span>
+            <span class="card-label">英語勉強・定期テスト</span>
+            <span class="card-main">オープンチャットへ</span>
+        </a>
+    </div>
+</div>
+
+<script>
+    function updateClock() {
+        const now = new Date();
+        const year = now.getFullYear();
+        const month = String(now.getMonth() + 1).padStart(2, '0');
+        const date = String(now.getDate()).padStart(2, '0');
+        const dayNames = ['日', '月', '火', '水', '木', '金', '土'];
+        const day = dayNames[now.getDay()];
+        
+        const hours = String(now.getHours()).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+
+        document.getElementById('date').textContent = `${year}.${month}.${date} (${day})`;
+        document.getElementById('time').textContent = `${hours}:${minutes}`;
+    }
+
+    setInterval(updateClock, 1000);
+    updateClock();
+</script>
+
+</body>
+</html>
